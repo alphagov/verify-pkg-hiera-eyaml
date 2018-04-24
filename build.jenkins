@@ -11,5 +11,30 @@ pipeline {
         sh "./build.sh ${env.BUILD_NUMBER}"
       }
     }
+    stage('Upload to Aptly') {
+      when { branch 'master' }
+      agent {
+        docker {
+          image 'govukverify/aptly:latest'
+          args '-u root -v /var/lib/jenkins/.ssh:/tmp/jenkins_ssh -v /etc/ssh:/tmp/etc_ssh'
+          reuseNode true
+        }
+      }
+      environment {
+        ARTEFACT_PATH='artefacts'
+        REPO_NAMES='main'
+        REPO_PREFIX='.'
+        REPO_DISTRIBUTION='main'
+        PACKAGES_HOST='packages-1.tools.internal'
+        PACKAGES_USER='packages'
+        PACKAGES_PUBKEY_GPG="${env.PACKAGESPUBKEYGPG}"
+      }
+      steps {
+        sh 'mkdir -p /root/.ssh /etc/ssh'
+        sh 'cp /tmp/jenkins_ssh/* /root/.ssh/'
+        sh 'cp /tmp/etc_ssh/* /etc/ssh/'
+        sh '/script/upload_to_aptly.sh'
+      }
+    }
   }
 }
