@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+# Hiera-eyaml and its dependencies. These (and their dependencies) will be
+# packaged into .deb files.
+gem 'hiera-eyaml'
+gem 'hiera-eyaml-gpg'
+gem 'ruby_gpg'

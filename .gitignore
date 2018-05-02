@@ -1,3 +1,5 @@
 *.swp
+/.bundle
+/buildtools
+/hiera-eyaml
 /output
-/vendor
