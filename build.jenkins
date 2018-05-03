@@ -21,7 +21,7 @@ pipeline {
         }
       }
       environment {
-        ARTEFACT_PATH='artefacts'
+        ARTEFACT_PATH='output/trusty'
         REPO_NAMES='main'
         REPO_PREFIX='.'
         REPO_DISTRIBUTION='main'
