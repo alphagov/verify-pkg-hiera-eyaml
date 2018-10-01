@@ -21,8 +21,8 @@ pushd output
 
 for GEM in ../hiera-eyaml/vendor/cache/*.gem; do
   BUNDLE_GEMFILE=../Gemfile.buildtools bundle exec fpm -s gem -t deb \
-    --prefix /opt/puppetlabs/puppet/lib/ruby/gems/2.4.0 \
-    --gem-package-name-prefix puppet5-rubygem \
+    --prefix /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0 \
+    --gem-package-name-prefix puppet6-rubygem \
     --iteration "${REVISION}~trusty1" \
     --architecture all \
     --maintainer "ida-operations@digital.cabinet-office.gov.uk" \
