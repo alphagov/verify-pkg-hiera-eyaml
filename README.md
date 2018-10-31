@@ -21,7 +21,7 @@ tools are bundled into `buildtools`. We then use fpm to package all the
 `hiera-eyaml` gems into Debian packages with a custom gempath that matches the
 one for Puppetlabs' `puppet-agent` package and its bundled ruby.
 
-We also prefix the names of the generated .deb packages with `puppet5-rubygem-`
+We also prefix the names of the generated .deb packages with `puppet6-rubygem-`
 so that they do not conflict with system packages (since they're installed into
 a different gempath, they cannot conflict or be used by the system ruby). This
 prefix applies to packages pulled in as dependencies as well.
