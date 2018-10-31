@@ -14,9 +14,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hiera-eyaml
   hiera-eyaml-gpg
   ruby_gpg
 
 BUNDLED WITH
-   1.16.1
+   1.16.6
