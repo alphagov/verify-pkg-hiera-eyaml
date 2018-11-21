@@ -1,5 +1,5 @@
 *.swp
 /.bundle
 /buildtools
-/hiera-eyaml-gpg
+/hiera-eyaml
 /output
