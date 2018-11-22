@@ -1,6 +1,6 @@
-# verify-pkg-hiera-eyaml-gpg
+# verify-pkg-hiera-eyaml
 
-This repository allows packaging for Ubuntu of hiera-eyaml-gpg for Puppet
+This repository allows packaging for Ubuntu of hiera-eyaml for Puppet
 versions which include their own bundled Ruby in `/opt/puppetlabs/puppet`
 
 Usage: `./build.sh <version suffix>`
@@ -11,7 +11,7 @@ Generated Debian packages will be placed in `output/trusty/`
 
 See `build.sh` for the details, but in summary:
 
-`Gemfile.hiera-eyaml-gpg` specifies the gems we want to package into .deb
+`Gemfile.hiera-eyaml` specifies the gems we want to package into .deb
 packages
 
 `Gemfile.buildtools` specifies gems we need in order to do that (at the time of
@@ -23,9 +23,6 @@ build tools are bundled into `buildtools`. We then use fpm to package the
 gempath that matches the one for Puppetlabs' `puppet-agent` package and its
 bundled ruby.
 
-We exclude dependencies such as `hiera-eyaml` which are already bundled as part
-of `puppet-agent`
-
-We also prefix the names of the generated .deb packages with `puppet6-rubygem-`
+We also prefix the names of the generated .deb packages with `puppet5-rubygem-`
 so that they do not conflict with system packages (since they're installed into
 a different gempath, they cannot conflict or be used by the system ruby).
